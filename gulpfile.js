@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var sass = require('gulp-sass')
 var browserSync = require('browser-sync').create()
 var sourcemaps = require('gulp-sourcemaps')
+var autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('serve', ['sass'], function () {
   browserSync.init({
@@ -14,7 +15,8 @@ gulp.task('serve', ['sass'], function () {
 gulp.task('sass', function () {
   return gulp.src('./app/sass/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({precision: 10}).on('error', sass.logError))
+    .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream())
