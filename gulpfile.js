@@ -28,8 +28,8 @@ gulp.task('sass', function () {
     .pipe(browserSync.stream())
 })
 
-// Checking JavaScript code with the standard syntax
-// https://www.npmjs.com/package/gulp-standard
+// No decisions to make. No .eslintrc, .jshintrc, or .jscsrc files to manage
+// https://github.com/feross/standard
 gulp.task('standard', function () {
   return gulp.src(['./app/js/main.js'])
     .pipe(standard())
