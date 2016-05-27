@@ -6,7 +6,7 @@ var autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('serve', ['sass'], function () {
   browserSync.init({
-    server: ['app', 'dist']
+    server: ['.tmp', 'app']
   })
   gulp.watch('app/sass/*.scss', ['sass'])
   gulp.watch('app/*.html').on('change', browserSync.reload)
@@ -18,7 +18,7 @@ gulp.task('sass', function () {
     .pipe(sass({precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./tmp/css'))
     .pipe(browserSync.stream())
 })
 
