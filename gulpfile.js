@@ -5,6 +5,8 @@ var sourcemaps = require('gulp-sourcemaps')
 var autoprefixer = require('gulp-autoprefixer')
 var standard = require('gulp-standard')
 
+// Synchronised browser testing
+// https://www.browsersync.io/
 gulp.task('serve', ['sass', 'standard'], function () {
   browserSync.init({
     server: ['.tmp', 'app']
@@ -14,13 +16,15 @@ gulp.task('serve', ['sass', 'standard'], function () {
   gulp.watch('app/*.html').on('change', browserSync.reload)
 })
 
+// Compile your Sass
+// https://github.com/dlmanning/gulp-sass
 gulp.task('sass', function () {
   return gulp.src('./app/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./tmp/css'))
+    .pipe(gulp.dest('./.tmp/css'))
     .pipe(browserSync.stream())
 })
 
