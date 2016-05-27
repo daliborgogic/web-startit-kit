@@ -1,0 +1,30 @@
+{
+  "author": {
+    "name": "Dalibor Gogic",
+    "url": "https://daliborgogic.com"
+  },
+  "name": "web-startit-kit",
+  "version": "1.0.0",
+  "description": "A solid starting point for both profesionals and newcomers to the industry",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daliborgogic/web-startit-kit.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daliborgogic/web-startit-kit/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
