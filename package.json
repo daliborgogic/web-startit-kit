@@ -16,7 +16,7 @@
     "url": "https://github.com/daliborgogic/web-startit-kit/issues"
   },
   "scripts": {
-    "start": "npm i && bower i && gulp"
+    "start": "npm i && bower i && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
