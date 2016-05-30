@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "author": "Dalibor Gogic <mail@daliborgogic.com>",
   "devDependencies": {
-    "normalize.css": "~3.0.1"
+    "normalize.css": "~4.1.1"
   }
 }
