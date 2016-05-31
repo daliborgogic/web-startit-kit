@@ -4,6 +4,7 @@ var browserSync = require('browser-sync').create()
 var sourcemaps = require('gulp-sourcemaps')
 var autoprefixer = require('gulp-autoprefixer')
 var standard = require('gulp-standard')
+var clean = require('gulp-clean')
 
 // Synchronised browser testing
 // https://www.browsersync.io/
@@ -36,6 +37,15 @@ gulp.task('standard', function () {
     .pipe(standard.reporter('default', {
       breakOnError: true
     }))
+})
+
+gulp.task('clean', function () {
+  return gulp.src([
+    '.tmp/',
+    'node_modules',
+    'app/bower_components'
+  ])
+    .pipe(clean({force: true}))
 })
 
 gulp.task('default', ['serve'])

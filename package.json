@@ -16,15 +16,15 @@
     "url": "https://github.com/daliborgogic/web-startit-kit/issues"
   },
   "scripts": {
-    "initial": "npm i && bower i && gulp",
-    "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "npm i && bower i && gulp",
+    "start": "gulp"
   },
   "keywords": [],
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-standard": "^7.0.1"
