@@ -10,22 +10,22 @@ var clean = require('gulp-clean')
 // https://www.browsersync.io/
 gulp.task('serve', ['sass', 'standard'], function () {
   browserSync.init({
-    server: ['.tmp', 'app']
+    server: ['app']
   })
-  gulp.watch('app/css/*.scss', ['sass'])
-  gulp.watch('app/js/*.js', ['standard'])
-  gulp.watch('app/*.html').on('change', browserSync.reload)
+  gulp.watch('./app/sass/*.scss', ['sass'])
+  gulp.watch('./app/js/*.js', ['standard'])
+  gulp.watch('./app/*.html').on('change', browserSync.reload)
 })
 
 // Compile your Sass
 // https://github.com/dlmanning/gulp-sass
 gulp.task('sass', function () {
-  return gulp.src('./app/css/**/*.scss')
+  return gulp.src('./app/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./.tmp/css'))
+    .pipe(gulp.dest('./app/css'))
     .pipe(browserSync.stream())
 })
 
@@ -41,7 +41,6 @@ gulp.task('standard', function () {
 
 gulp.task('clean', function () {
   return gulp.src([
-    '.tmp/',
     'node_modules',
     'app/bower_components'
   ])

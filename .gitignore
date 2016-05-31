@@ -6,4 +6,5 @@ bower_components
 NOTE.md
 dist/
 .tmp
-tmp
+tmp/
+npm-debug.log
