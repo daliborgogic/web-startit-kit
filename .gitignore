@@ -5,6 +5,4 @@ node_modules
 bower_components
 NOTE.md
 dist/
-.tmp
-tmp/
 npm-debug.log
