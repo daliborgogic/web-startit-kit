@@ -11,7 +11,7 @@ gulp.task('serve', ['sass', 'standard'], function () {
   browserSync.init({
     server: ['.tmp', 'app']
   })
-  gulp.watch('app/sass/*.scss', ['sass'])
+  gulp.watch('app/css/*.scss', ['sass'])
   gulp.watch('app/js/*.js', ['standard'])
   gulp.watch('app/*.html').on('change', browserSync.reload)
 })
@@ -19,7 +19,7 @@ gulp.task('serve', ['sass', 'standard'], function () {
 // Compile your Sass
 // https://github.com/dlmanning/gulp-sass
 gulp.task('sass', function () {
-  return gulp.src('./app/sass/**/*.scss')
+  return gulp.src('./app/css/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))

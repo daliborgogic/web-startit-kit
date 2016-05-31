@@ -1,5 +1,6 @@
 *.sublime-project
 *.sublime-workspace
+.directory
 node_modules
 bower_components
 NOTE.md
