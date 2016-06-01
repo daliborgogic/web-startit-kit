@@ -11,9 +11,12 @@ html, body {
   height: 100%;
 }
 
-body { 
+body {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $brand-color;
+}
+h1 {
+  color: #4a86e8;
 }
