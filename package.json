@@ -5,7 +5,7 @@
   },
   "name": "web-startit-kit",
   "version": "1.0.0",
-  "description": "A solid starting point for both profesionals and newcomers to the industry",
+  "description": "Automating Front-end Workflow",
   "main": "app.js",
   "repository": {
     "type": "git",
