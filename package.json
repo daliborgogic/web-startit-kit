@@ -17,7 +17,8 @@
   },
   "scripts": {
     "init": "npm i && bower i && gulp",
-    "start": "gulp"
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "devDependencies": {

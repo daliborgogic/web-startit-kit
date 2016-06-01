@@ -10,11 +10,11 @@ var clean = require('gulp-clean')
 // https://www.browsersync.io/
 gulp.task('serve', ['sass', 'standard'], function () {
   browserSync.init({
-    server: ['app']
+    server: ['./app']
   })
-  gulp.watch('./app/sass/*.scss', ['sass'])
-  gulp.watch('./app/js/*.js', ['standard'])
-  gulp.watch('./app/*.html').on('change', browserSync.reload)
+  gulp.watch('app/sass/*.scss', ['sass'])
+  gulp.watch('app/js/*.js', ['standard'])
+  gulp.watch('app/*.html').on('change', browserSync.reload)
 })
 
 // Compile your Sass
@@ -22,10 +22,10 @@ gulp.task('serve', ['sass', 'standard'], function () {
 gulp.task('sass', function () {
   return gulp.src('./app/sass/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({precision: 10}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed', precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/css'))
+    .pipe(gulp.dest('app/css'))
     .pipe(browserSync.stream())
 })
 
