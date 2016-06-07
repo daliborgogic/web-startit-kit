@@ -1,7 +1,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 # Web Startit Kit
-Automating Front-end Workflow
+For Meetup: [Automating Front-end Workflow](https://daliborgogic.com/notes/automating-front-end-workflow) 
 
 ## Quickstart
 
