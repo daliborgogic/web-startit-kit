@@ -25,6 +25,13 @@ $ gulp
 $ gulp production
 ```
 
+### Optional
+
+```sh
+// generate images at different sizes
+$ gulp responsive
+```
+
 ## Inspiration
 
 Web Startit Kit is inspired by [Web Starter Kit](https://github.com/google/web-starter-kit) 
