@@ -30,10 +30,6 @@ gulp.task('serve:dist', () => {
   browserSync.init({
     server: ['dist']
   })
-  gulp.watch('app/sass/*.scss', ['sass'])
-  gulp.watch('app/js/*.js', ['standard', 'concat'])
-  gulp.watch('.tmp/js/*js').on('change', browserSync.reload)
-  gulp.watch('app/*.html').on('change', browserSync.reload)
 })
 
 // Compile your Sass
@@ -107,7 +103,7 @@ gulp.task('clean', () => gulp.src([
 gulp.task('default', ['serve'])
 
 // production task
-gulp.task('production', ['clean'], cb => runSequence([
+gulp.task('build', ['clean'], cb => runSequence([
   'sassDist',
   'concat',
   'compress',
@@ -119,4 +115,4 @@ gulp.task('production', ['clean'], cb => runSequence([
 )
 )
 
-gulp.task('serve:production', ['serve:dist'])
+gulp.task('production', ['build', 'serve:dist'])
