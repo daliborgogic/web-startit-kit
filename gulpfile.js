@@ -5,17 +5,19 @@ var sourcemaps = require('gulp-sourcemaps')
 var autoprefixer = require('gulp-autoprefixer')
 var standard = require('gulp-standard')
 var clean = require('gulp-clean')
+var concat = require('gulp-concat')
 var psi = require('psi')
 var site = 'https://daliborgogic.com'
 
 // Synchronised browser testing
 // https://www.browsersync.io/
-gulp.task('serve', ['sass', 'standard'], function () {
+gulp.task('serve', ['sass', 'standard', 'concat'], function () {
   browserSync.init({
-    server: ['./app']
+    server: ['./app', './.tmp']
   })
   gulp.watch('app/sass/*.scss', ['sass'])
-  gulp.watch('app/js/*.js', ['standard'])
+  gulp.watch('app/js/*.js', ['standard', 'concat'])
+  gulp.watch('.tmp/js/*js').on('change', browserSync.reload)
   gulp.watch('app/*.html').on('change', browserSync.reload)
 })
 
@@ -27,18 +29,26 @@ gulp.task('sass', function () {
     .pipe(sass({outputStyle: 'compressed', precision: 10}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions']}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/css'))
+    .pipe(gulp.dest('.tmp/css'))
     .pipe(browserSync.stream())
 })
 
 // No decisions to make. No .eslintrc, .jshintrc, or .jscsrc files to manage
 // https://github.com/feross/standard
 gulp.task('standard', function () {
-  return gulp.src(['./app/js/main.js'])
+  return gulp.src(['./app/js/*.js'])
     .pipe(standard())
     .pipe(standard.reporter('default', {
       breakOnError: true
     }))
+})
+
+gulp.task('concat', function () {
+  return gulp.src('app/js/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('.tmp/js'))
 })
 
 gulp.task('clean', function () {
