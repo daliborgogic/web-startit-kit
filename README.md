@@ -26,9 +26,9 @@ $ gulp production
 ```
 
 ### Optional
+Generate images at different sizes
 
 ```sh
-// generate images at different sizes
 $ gulp responsive
 ```
 
