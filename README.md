@@ -19,6 +19,12 @@ $ npm run init
 $ gulp
 ```
 
+### Build
+
+```sh
+$ gulp production
+```
+
 ## Inspiration
 
 Web Startit Kit is inspired by [Web Starter Kit](https://github.com/google/web-starter-kit) 
