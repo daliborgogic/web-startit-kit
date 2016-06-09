@@ -51,25 +51,26 @@ gulp.task('clean', function () {
 
 gulp.task('mobile', function () {
   return psi(site, {
+    nokey: true,
+    // By default we use the PageSpeed Insights free (no API key) tier.
+    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: key
-    nokey: 'true',
     strategy: 'mobile'
   }).then(function (data) {
     console.log('Speed score: ' + data.ruleGroups.SPEED.score)
     console.log('Usability score: ' + data.ruleGroups.USABILITY.score)
+    console.log('Page Stats: ', data.pageStats)
   })
 })
 
 gulp.task('desktop', function () {
   return psi(site, {
     nokey: true,
-    // By default we use the PageSpeed Insights free (no API key) tier.
-    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
     strategy: 'desktop'
   }).then(function (data) {
     console.log('Speed score: ' + data.ruleGroups.SPEED.score)
-    console.log('Page Stats: ' + data.pageStats)
+    console.log('Page Stats: ', data.pageStats)
   })
 })
 
