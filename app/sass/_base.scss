@@ -15,8 +15,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $brand-color;
+  background-color: $brand-background-color;
 }
 h1 {
-  color: #4a86e8;
+  color: $brand-color;
 }

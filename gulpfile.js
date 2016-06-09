@@ -5,6 +5,8 @@ var sourcemaps = require('gulp-sourcemaps')
 var autoprefixer = require('gulp-autoprefixer')
 var standard = require('gulp-standard')
 var clean = require('gulp-clean')
+var psi = require('psi')
+var site = 'https://daliborgogic.com'
 
 // Synchronised browser testing
 // https://www.browsersync.io/
@@ -45,6 +47,30 @@ gulp.task('clean', function () {
     'app/bower_components'
   ])
     .pipe(clean({force: true}))
+})
+
+gulp.task('mobile', function () {
+  return psi(site, {
+    // key: key
+    nokey: 'true',
+    strategy: 'mobile'
+  }).then(function (data) {
+    console.log('Speed score: ' + data.ruleGroups.SPEED.score)
+    console.log('Usability score: ' + data.ruleGroups.USABILITY.score)
+  })
+})
+
+gulp.task('desktop', function () {
+  return psi(site, {
+    nokey: true,
+    // By default we use the PageSpeed Insights free (no API key) tier.
+    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
+    // key: 'YOUR_API_KEY'
+    strategy: 'desktop'
+  }).then(function (data) {
+    console.log('Speed score: ' + data.ruleGroups.SPEED.score)
+    console.log('Page Stats: ' + data.pageStats)
+  })
 })
 
 gulp.task('default', ['serve'])
