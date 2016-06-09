@@ -28,7 +28,7 @@ $ gulp responsive
 ### Build
 
 ```sh
-$ gulp production
+$ gulp prod
 ```
 
 ## Inspiration
