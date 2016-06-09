@@ -11,6 +11,7 @@ const copy = require('gulp-copy')
 const htmlmin = require('gulp-htmlmin')
 const uglify = require('gulp-uglify')
 const runSequence = require('run-sequence')
+const cleanCSS = require('gulp-clean-css')
 const del = require('del')
 const fs = require('fs')
 
@@ -32,20 +33,21 @@ gulp.task('serve:dist', () => {
   })
 })
 
+gulp.task('minify-css', function () {
+  return gulp.src('.tmp/css/main.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('dist/css'))
+})
+
 // Compile your Sass
 // https://github.com/dlmanning/gulp-sass
-gulp.task('sass', () => gulp.src('./app/sass/**/*.scss')
+gulp.task('sass', () => gulp.src('./app/sass/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({outputStyle: 'nested', precision: 10}).on('error', sass.logError))
   .pipe(autoprefixer({browsers: ['last 2 versions']}))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('.tmp/css'))
   .pipe(browserSync.stream())
-)
-gulp.task('sassDist', () => gulp.src('./app/sass/**/*.scss')
-  .pipe(sass({outputStyle: 'compressed', precision: 10}).on('error', sass.logError))
-  .pipe(autoprefixer({browsers: ['last 2 versions']}))
-  .pipe(gulp.dest('.tmp/css'))
 )
 
 // https://www.npmjs.com/package/gulp-imagemin
@@ -74,7 +76,7 @@ gulp.task('minify', () => gulp.src('app/*.html')
 
 gulp.task('compress', () => gulp.src('.tmp/js/main.js')
   .pipe(uglify())
-  .pipe(gulp.dest('.tmp/js/'))
+  .pipe(gulp.dest('dist/js/'))
 )
 
 gulp.task('concat', () => gulp.src([
@@ -88,13 +90,14 @@ gulp.task('concat', () => gulp.src([
 )
 
 gulp.task('copy', () => gulp.src([
-  '.tmp/**/*'
+  '.tmp/*'
 ])
   .pipe(gulp.dest('dist'))
 )
 
 gulp.task('clean', () => gulp.src([
-  'dist'
+  'dist',
+  '.tmp'
 ])
   .pipe(clean({force: true}))
 )
@@ -103,16 +106,6 @@ gulp.task('clean', () => gulp.src([
 gulp.task('default', ['serve'])
 
 // production task
-gulp.task('build', ['clean'], cb => runSequence([
-  'sassDist',
-  'concat',
-  'compress',
-  'minify',
-  'copy',
-  'images'
-],
-  cb
-)
-)
+gulp.task('build', ['minify-css', 'concat', 'compress', 'minify', 'copy', 'images'])
 
-gulp.task('production', ['build', 'serve:dist'])
+gulp.task('prod', ['build', 'serve:dist'])
