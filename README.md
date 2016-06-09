@@ -19,17 +19,16 @@ $ npm run init
 $ gulp
 ```
 
-### Build
-
-```sh
-$ gulp production
-```
-
 ### Optional
 Generate images at different sizes
 
 ```sh
 $ gulp responsive
+```
+### Build
+
+```sh
+$ gulp production
 ```
 
 ## Inspiration
