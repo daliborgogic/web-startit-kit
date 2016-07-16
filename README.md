@@ -38,3 +38,6 @@ Web Startit Kit is inspired by [Web Starter Kit](https://github.com/google/web-s
 ## Contributing
 
 Contributions, questions and comments are all welcome and encouraged. 
+
+## Contributors
+Thanks to all the [contributors](https://github.com/daliborgogic/web-startit-kit/graphs/contributors)!
