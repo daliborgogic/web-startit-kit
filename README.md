@@ -1,6 +1,4 @@
-[![status](https://david-dm.org/daliborgogic/web-startit-kit/dev-status.svg)](https://david-dm.org/daliborgogic/web-startit-kit#info=devDependencies)
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![status](https://david-dm.org/daliborgogic/web-startit-kit/dev-status.svg)](https://david-dm.org/daliborgogic/web-startit-kit#info=devDependencies) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 # Web Startit Kit
 For Meetup: [Automating Front-end Workflow](https://daliborgogic.com/notes/automating-front-end-workflow) 
