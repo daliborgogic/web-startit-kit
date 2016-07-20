@@ -23,7 +23,7 @@ gulp.task('serve', ['sass', 'concat'], () => {
     server: ['./app', './.tmp']
   })
   gulp.watch('app/sass/*.scss', ['sass'])
-  gulp.watch('app/js/*.js', ['standard', 'concat'])
+  gulp.watch('app/js/*.js', ['concat'])
   gulp.watch('.tmp/js/*.js').on('change', browserSync.reload)
   gulp.watch('app/*.html').on('change', browserSync.reload)
 })
