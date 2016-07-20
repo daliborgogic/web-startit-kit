@@ -1,3 +1,5 @@
+[![status](https://david-dm.org/daliborgogic/web-startit-kit/dev-status.svg)](https://david-dm.org/daliborgogic/web-startit-kit#info=devDependencies)
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 # Web Startit Kit
