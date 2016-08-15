@@ -12,7 +12,6 @@ const uglify = require('gulp-uglify')
 const runSequence = require('run-sequence')
 const cleanCSS = require('gulp-clean-css')
 const responsive = require('gulp-responsive')
-const del = require('del')
 const fs = require('fs')
 
 // Synchronised browser testing
